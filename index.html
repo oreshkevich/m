@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Darja</title>
+</head>
+
+<body id="block">
+  <header class="header">
+    <!-- <div class="container-header"> -->
+    <div class="player">
+      <div class="header-player">
+        <div class="player-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+        <!-- Top Info -->
+        <div class="header-title">
+          <div id="title" class="artSong-header">
+            <span id="track"></span>
+          </div>
+          <div class="video-progress">
+            <progress id="progress-bar"></progress>
+            <input class="seek tool-bar__time-bar" id="seek" value="0" min="0" type="range" step="1">
+          </div>
+        </div>
+        <div class="duration-timer">
+          <div id="time-elapsed" class="timer-header">0:00</div>
+          <div id="duration">0:00</div>
+        </div>
+
+        <div class="volume-header">
+          <div id="mute-button" class="mute-button"><svg width="20" height="20" viewBox="0 0 1792 1792"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M832 352v1088q0 26-19 45t-45 19-45-19l-333-333h-262q-26 0-45-19t-19-45v-384q0-26 19-45t45-19h262l333-333q19-19 45-19t45 19 19 45zm384 544q0 76-42.5 141.5t-112.5 93.5q-10 5-25 5-26 0-45-18.5t-19-45.5q0-21 12-35.5t29-25 34-23 29-36 12-56.5-12-56.5-29-36-34-23-29-25-12-35.5q0-27 19-45.5t45-18.5q15 0 25 5 70 27 112.5 93t42.5 142zm256 0q0 153-85 282.5t-225 188.5q-13 5-25 5-27 0-46-19t-19-45q0-39 39-59 56-29 76-44 74-54 115.5-135.5t41.5-173.5-41.5-173.5-115.5-135.5q-20-15-76-44-39-20-39-59 0-26 19-45t45-19q13 0 26 5 140 59 225 188.5t85 282.5zm256 0q0 230-127 422.5t-338 283.5q-13 5-26 5-26 0-45-19t-19-45q0-36 39-59 7-4 22.5-10.5t22.5-10.5q46-25 82-51 123-91 192-227t69-289-69-289-192-227q-36-26-82-51-7-4-22.5-10.5t-22.5-10.5q-39-23-39-59 0-26 19-45t45-19q13 0 26 5 211 91 338 283.5t127 422.5z"
+                fill="#fff" />
+            </svg></div>
+          <input type="range" id="volume" value="0.5" max="1" min="0" step="0.01">
+        </div>
+      </div>
+      <ul class="play-list"></ul>
+
+    </div>
+
+
+    <div class="weather ">
+      <input type="text" class="city" />
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+    <!-- </div> -->
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <p class="name">Дарья, Даша, Дашенька</p>
+      <!-- <input type="text" class="name" value="" /> -->
+    </div>
+    <div class="tun">
+      <div class="tuna"></div>
+    </div>
+    <button class="button-settings">Settings</button>
+    <div class="todo-settings vigorous">
+      <h2>Settings</h2>
+      <div class="create_new_todo">
+
+        <button class="button-weather">Weather</button>
+        <button class="button-time">Time</button>
+        <button class="button-play">Play</button>
+        <button class="button-date">Date</button>
+      </div>
+      <button class="button-wish">Wish</button>
+      <button class="button-quote">Quote</button>
+      <select class="change-lang">
+        <option value="en" selected>EN</option>
+        <!-- <option value="be">BE</option> -->
+        <option value="ru">RU</option>
+      </select>
+    </div>
+
+
+
+    <button class="button-todo">Todo</button>
+    <div class="todo_list vigorous">
+      <h2>ToDo list</h2>
+      <div class="create_new_todo">
+        <input type="text" class="message" placeholder="Description">
+        <button class="add">Add</button>
+      </div>
+      <div class="wrapper">
+        <ul class="todo"></ul>
+      </div>
+    </div>
+
+  </main>
+  <footer class="footer">
+    <button class="change-quote"></button>
+    <div class="quote-wrap">
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+
+
+  </footer>
+
+  <script type="module" src="js/script.js"></script>
+  <script src="js/todo.js"></script>
+</body>
+
+</html>
