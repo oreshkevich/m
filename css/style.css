@@ -662,6 +662,11 @@ p {text-align: center;}
   }
 }
 @media (max-width: 997px) {
+  body {
+  min-width: 350px;
+  min-height: 100px;
+
+}
   .tun {
     position: absolute;
     top: -164px;
@@ -773,11 +778,10 @@ input[type=text] {
 }
 
 .button-todo {
-  top: 317px;
-   
+  top: 337px;
 }
 .button-settings {
-  top: 224px;
+  top: 282px;
 }
 }
 
@@ -796,5 +800,7 @@ input[type=text] {
   min-height: 295px;  
   padding: 20px;
 }
-
+.tun {
+  display: none;
+}
 }
