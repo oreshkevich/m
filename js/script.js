@@ -1,10 +1,10 @@
-import playList from "./playList.js";
-import langArr from "./lang.js";
-import quotes from "./data.js";
+import playList from './playList.js';
+import langArr from './lang.js';
+import quotes from './data.js';
 console.log(playList);
 console.log(langArr);
 
-const time = document.querySelector(".time");
+const time = document.querySelector('.time');
 
 // function showTime() {
 // const dateOne = new Date();
@@ -22,7 +22,7 @@ function showTime() {
   hour = updateTime(hour);
   min = updateTime(min);
   sec = updateTime(sec);
-  time.textContent = hour + ":" + min + ":" + sec;
+  time.textContent = hour + ':' + min + ':' + sec;
   let t = setTimeout(function () {
     showTime();
   }, 1000);
@@ -30,7 +30,7 @@ function showTime() {
 
 function updateTime(k) {
   if (k < 10) {
-    return "0" + k;
+    return '0' + k;
   } else {
     return k;
   }
@@ -38,26 +38,26 @@ function updateTime(k) {
 
 showTime();
 
-const date = document.querySelector(".date");
+const date = document.querySelector('.date');
 function showDay() {
   let hash = window.location.hash;
   hash = hash.substr(1);
   const currentDay = new Date();
 
-  if (hash == "en") {
-    const d = `${new Intl.DateTimeFormat("en-US", {
-      weekday: "long",
-    }).format(currentDay)}, ${new Intl.DateTimeFormat("en-US", {
-      month: "long",
+  if (hash == 'en') {
+    const d = `${new Intl.DateTimeFormat('en-US', {
+      weekday: 'long',
+    }).format(currentDay)}, ${new Intl.DateTimeFormat('en-US', {
+      month: 'long',
     }).format(currentDay)} ${currentDay.getDate()}`;
     date.textContent = d;
   }
-  if (hash == "ru" || hash == "be") {
-    const d = `${new Intl.DateTimeFormat("ru", {
-      weekday: "long",
+  if (hash == 'ru' || hash == 'be') {
+    const d = `${new Intl.DateTimeFormat('ru', {
+      weekday: 'long',
     }).format(currentDay)},  ${currentDay.getDate()}, ${new Intl.DateTimeFormat(
-      "ru",
-      { month: "long" }
+      'ru',
+      { month: 'long' }
     ).format(currentDay)}`;
     date.textContent = d;
   }
@@ -66,39 +66,39 @@ function showDay() {
 }
 showDay();
 
-const baseMorning = "https://oreshkevich.github.io/moment/images/morning/";
-const baseDay = "https://oreshkevich.github.io/moment/images/afternoon/";
-const baseEvening = "https://oreshkevich.github.io/moment/images/evening/";
-const baseNight = "https://oreshkevich.github.io/moment/images/night/";
+const baseMorning = 'https://oreshkevich.github.io/moment/images/morning/';
+const baseDay = 'https://oreshkevich.github.io/moment/images/afternoon/';
+const baseEvening = 'https://oreshkevich.github.io/moment/images/evening/';
+const baseNight = 'https://oreshkevich.github.io/moment/images/night/';
 const images = [
-  "01.jpg",
-  "02.jpg",
-  "03.jpg",
-  "05.jpg",
-  "06.jpg",
-  "07.jpg",
-  "08.jpg",
-  "09.jpg",
-  "10.jpg",
-  "11.jpg",
-  "12.jpg",
-  "13.jpg",
-  "14.jpg",
-  "15.jpg",
-  "16.jpg",
-  "17.jpg",
-  "18.jpg",
-  "19.jpg",
-  "20.jpg",
+  '01.jpg',
+  '02.jpg',
+  '03.jpg',
+  '05.jpg',
+  '06.jpg',
+  '07.jpg',
+  '08.jpg',
+  '09.jpg',
+  '10.jpg',
+  '11.jpg',
+  '12.jpg',
+  '13.jpg',
+  '14.jpg',
+  '15.jpg',
+  '16.jpg',
+  '17.jpg',
+  '18.jpg',
+  '19.jpg',
+  '20.jpg',
 ];
 let i = 0;
 
-const btn = document.querySelector(".slide-prev");
-const btnNext = document.querySelector(".slide-next");
+const btn = document.querySelector('.slide-prev');
+const btnNext = document.querySelector('.slide-next');
 
 function browsePicture(src) {
-  let block = document.getElementById("block");
-  block.style.backgroundImage = "url(" + `${src}` + ")";
+  let block = document.getElementById('block');
+  block.style.backgroundImage = 'url(' + `${src}` + ')';
 }
 
 function getPicture(n) {
@@ -146,19 +146,19 @@ function getPicture(n) {
   }
 }
 // btn.addEventListener('click', getPicture);
-btn.addEventListener("click", function () {
+btn.addEventListener('click', function () {
   getPicture(-1);
 });
-btnNext.addEventListener("click", function () {
+btnNext.addEventListener('click', function () {
   getPicture(1);
 });
 
 getPicture();
 
 const audio = new Audio();
-const playBtn = document.querySelector(".play");
-const playPrev = document.querySelector(".play-prev");
-const playNext = document.querySelector(".play-next");
+const playBtn = document.querySelector('.play');
+const playPrev = document.querySelector('.play-prev');
+const playNext = document.querySelector('.play-next');
 // audio.src = 'https://7oom.ru/audio/naturesounds/07%20Birds%20(7oom.ru).mp3';
 audio.src = playList[0].src;
 
@@ -172,17 +172,17 @@ function playAudio() {
 }
 
 function toggleBtn() {
-  playBtn.classList.toggle("pause");
+  playBtn.classList.toggle('pause');
 }
 
-playBtn.addEventListener("click", toggleBtn);
-playBtn.addEventListener("click", playAudio);
+playBtn.addEventListener('click', toggleBtn);
+playBtn.addEventListener('click', playAudio);
 
-const playListContainer = document.querySelector(".play-list");
+const playListContainer = document.querySelector('.play-list');
 for (let i = 0; i < playList.length; i++) {
-  const li = document.createElement("li");
+  const li = document.createElement('li');
   playListContainer.append(li);
-  li.classList.add("play-item");
+  li.classList.add('play-item');
   li.innerText = `${playList[i].title}`;
 }
 
@@ -197,22 +197,22 @@ function switchTreck(numTreck) {
   //     audio.play();
   //     console.log(i);
   // }
-  let playItem = document.querySelectorAll(".play-item");
+  let playItem = document.querySelectorAll('.play-item');
   playItem.forEach((elem) => {
-    elem.classList.remove("item-active");
+    elem.classList.remove('item-active');
   });
 
-  playItem[numTreck].classList.add("item-active");
+  playItem[numTreck].classList.add('item-active');
   audio.currentTime = 0;
   audio.play();
-  playBtn.classList.add("pause");
-  let track = document.getElementById("track");
+  playBtn.classList.add('pause');
+  let track = document.getElementById('track');
 
   track.innerHTML = `${playList[numTreck].title}`;
 }
 
 var currentSong = 0;
-audio.addEventListener("ended", function () {
+audio.addEventListener('ended', function () {
   audio.pause();
   audio.currentTime = 0;
   // document.getElementById('seek').value = 0;
@@ -227,7 +227,7 @@ audio.addEventListener("ended", function () {
   switchTreck(currentSong);
 });
 
-playPrev.addEventListener("click", function () {
+playPrev.addEventListener('click', function () {
   if (treck > 0) {
     treck--;
     switchTreck(treck);
@@ -237,7 +237,7 @@ playPrev.addEventListener("click", function () {
   }
 });
 
-playNext.addEventListener("click", function () {
+playNext.addEventListener('click', function () {
   if (treck < 3) {
     treck++;
     switchTreck(treck);
@@ -246,8 +246,8 @@ playNext.addEventListener("click", function () {
     switchTreck(treck);
   }
 });
-const volume = document.getElementById("volume");
-const muteButton = document.getElementById("mute-button");
+const volume = document.getElementById('volume');
+const muteButton = document.getElementById('mute-button');
 
 function updateVolume() {
   if (audio.muted) {
@@ -255,7 +255,7 @@ function updateVolume() {
   }
   audio.volume = volume.value;
 }
-volume.addEventListener("input", updateVolume);
+volume.addEventListener('input', updateVolume);
 console.log(volume);
 
 function updateVolumeIcon() {
@@ -265,7 +265,7 @@ function updateVolumeIcon() {
     muteButton.style.opacity = 1;
   }
 }
-audio.addEventListener("volumechange", updateVolumeIcon);
+audio.addEventListener('volumechange', updateVolumeIcon);
 
 function toggleMute() {
   audio.muted = !audio.muted;
@@ -277,12 +277,12 @@ function toggleMute() {
   }
 }
 
-muteButton.addEventListener("click", toggleMute);
+muteButton.addEventListener('click', toggleMute);
 
-const timeElapsed = document.getElementById("time-elapsed");
-const duration = document.getElementById("duration");
-const progressBar = document.getElementById("progress-bar");
-const seek = document.getElementById("seek");
+const timeElapsed = document.getElementById('time-elapsed');
+const duration = document.getElementById('duration');
+const progressBar = document.getElementById('progress-bar');
+const seek = document.getElementById('seek');
 
 function formatTime(timeInSeconds) {
   const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
@@ -294,8 +294,8 @@ function formatTime(timeInSeconds) {
 
 function initializeAudio() {
   const audioDuration = Math.round(audio.duration);
-  seek.setAttribute("max", audioDuration);
-  progressBar.setAttribute("max", audioDuration);
+  seek.setAttribute('max', audioDuration);
+  progressBar.setAttribute('max', audioDuration);
   const time = formatTime(audioDuration);
   duration.innerText = `${time.minutes}:${time.seconds}`;
 }
@@ -318,12 +318,12 @@ function skipAhead(event) {
   progressBar.value = skipTo;
   seek.value = skipTo;
 }
-audio.addEventListener("loadedmetadata", initializeAudio);
-audio.addEventListener("timeupdate", updateTimeElapsed);
-audio.addEventListener("timeupdate", updateProgress);
-seek.addEventListener("input", skipAhead);
+audio.addEventListener('loadedmetadata', initializeAudio);
+audio.addEventListener('timeupdate', updateTimeElapsed);
+audio.addEventListener('timeupdate', updateProgress);
+seek.addEventListener('input', skipAhead);
 
-const greeting = document.querySelector(".greeting");
+const greeting = document.querySelector('.greeting');
 
 // greeting.innerHTML = 'Good morning';
 
@@ -333,20 +333,20 @@ function getHi() {
   console.log(hash);
   let date = new Date();
   let j = date.getHours();
-  if (j >= 0 && j < 6) greeting.innerHTML = langArr["night"][hash];
-  if (j >= 6 && j < 12) greeting.innerHTML = langArr["morning"][hash];
-  if (j >= 12 && j < 18) greeting.innerHTML = langArr["afternoon"][hash];
-  if (j >= 18 && j <= 23) greeting.innerHTML = langArr["evening"][hash];
+  if (j >= 0 && j < 6) greeting.innerHTML = langArr['night'][hash];
+  if (j >= 6 && j < 12) greeting.innerHTML = langArr['morning'][hash];
+  if (j >= 12 && j < 18) greeting.innerHTML = langArr['afternoon'][hash];
+  if (j >= 18 && j <= 23) greeting.innerHTML = langArr['evening'][hash];
 }
 getHi();
 
-const weatherIcon = document.querySelector(".weather-icon");
-const temperature = document.querySelector(".temperature");
-const weatherDescription = document.querySelector(".weather-description");
-const wind = document.querySelector(".wind");
-const humidity = document.querySelector(".humidity");
-const city = document.querySelector(".city");
-const weatherError = document.querySelector(".weather-error");
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
+const wind = document.querySelector('.wind');
+const humidity = document.querySelector('.humidity');
+const city = document.querySelector('.city');
+const weatherError = document.querySelector('.weather-error');
 console.log(city.value);
 
 async function getWeather() {
@@ -358,22 +358,22 @@ async function getWeather() {
   hash = hash.substr(1);
   console.log(hash);
   let url;
-  if (city.value == "") {
-    if (hash == "en") city.value = "Brest";
-    if (hash == "ru") city.value = "Брест";
+  if (city.value == '') {
+    if (hash == 'en') city.value = 'Vitebsk';
+    if (hash == 'ru') city.value = 'Витебск';
   } else {
     city.value = city.value;
     console.log(city.value);
   }
 
-  if (hash == "en") {
+  if (hash == 'en') {
     url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value.trim()}&lang=en&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
   }
 
-  if (hash == "ru") {
+  if (hash == 'ru') {
     url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value.trim()}&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
   }
-  if (hash == "be") {
+  if (hash == 'be') {
     url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value.trim()}&lang=be&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
   }
   console.log(url);
@@ -382,47 +382,47 @@ async function getWeather() {
   try {
     const res = await fetch(url);
     const data = await res.json();
-    weatherIcon.className = "weather-icon owf";
+    weatherIcon.className = 'weather-icon owf';
 
     // if (weatherIcon.classList.add(`owf-${data.weather[0].id}`) == undefined) {
     //   weatherError.textContent = "Error! city not found for";
 
     // }
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-    weatherError.textContent = "";
+    weatherError.textContent = '';
     temperature.textContent = `${Math.round(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
     wind.textContent =
-      `${langArr["wind"][hash]}: ` + `${Math.round(data.wind.speed)} m/s`;
+      `${langArr['wind'][hash]}: ` + `${Math.round(data.wind.speed)} m/s`;
     humidity.textContent =
-      `${langArr["humidity"][hash]}: ` + `${data.main.humidity} %`;
+      `${langArr['humidity'][hash]}: ` + `${data.main.humidity} %`;
     city.value = data.name;
 
     console.log(city.value);
   } catch (err) {
-    weatherError.textContent = "Error! city not found";
-    temperature.textContent = "";
-    weatherDescription.textContent = "";
-    wind.textContent = "";
-    humidity.textContent = "";
+    weatherError.textContent = 'Error! city not found';
+    temperature.textContent = '';
+    weatherDescription.textContent = '';
+    wind.textContent = '';
+    humidity.textContent = '';
   }
 }
 
 // getWeather()
 
 function setCity(event) {
-  if (event.code === "Enter") {
+  if (event.code === 'Enter') {
     getWeather();
     city.blur();
   }
 }
 
-document.addEventListener("DOMContentLoaded", getWeather);
-city.addEventListener("keypress", setCity);
+document.addEventListener('DOMContentLoaded', getWeather);
+city.addEventListener('keypress', setCity);
 
-const quote = document.querySelector(".quote");
-const author = document.querySelector(".author");
-const changeQuote = document.querySelector(".change-quote");
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const changeQuote = document.querySelector('.change-quote');
 
 // async function getQuotes() {
 //    const url = `https://type.fit/api/quotes`;
@@ -444,27 +444,27 @@ function getQuotes() {
   hash = hash.substr(1);
   let random = quotes[Math.floor(Math.random() * quotes.length)];
 
-  if (hash == "en") {
+  if (hash == 'en') {
     quote.textContent = random.text;
     author.textContent = random.author;
   }
 
-  if (hash == "ru" || hash == "be") {
+  if (hash == 'ru' || hash == 'be') {
     quote.textContent = random.tex;
     author.textContent = random.auth;
   }
 }
 getQuotes();
-changeQuote.addEventListener("click", getQuotes);
+changeQuote.addEventListener('click', getQuotes);
 
-const select = document.querySelector("select");
-const allLang = ["en", "ru", "be"];
+const select = document.querySelector('select');
+const allLang = ['en', 'ru', 'be'];
 
-select.addEventListener("change", changeURLLanguage);
+select.addEventListener('change', changeURLLanguage);
 
 function changeURLLanguage() {
   let lang = select.value;
-  location.href = window.location.pathname + "#" + lang;
+  location.href = window.location.pathname + '#' + lang;
   location.reload();
 }
 
@@ -473,7 +473,7 @@ function changeLanguage() {
   hash = hash.substr(1);
 
   if (!allLang.includes(hash)) {
-    location.href = window.location.pathname + "#en";
+    location.href = window.location.pathname + '#en';
     location.reload();
   }
   select.value = hash;
@@ -492,65 +492,66 @@ function changeLanguage() {
 
 changeLanguage();
 
-const buttonWeather = document.querySelector(".button-weather");
-const weather = document.querySelector(".weather");
+const buttonWeather = document.querySelector('.button-weather');
+const weather = document.querySelector('.weather');
 // let hid = "hid";
 
-buttonWeather.addEventListener("click", () => {
-  weather.classList.toggle("hid");
+buttonWeather.addEventListener('click', () => {
+  weather.classList.toggle('hid');
 });
-const buttonTime = document.querySelector(".button-time");
-buttonTime.addEventListener("click", () => {
-  time.classList.toggle("hid");
-});
-
-const buttonPlay = document.querySelector(".button-play");
-const player = document.querySelector(".player");
-buttonPlay.addEventListener("click", () => {
-  player.classList.toggle("hid");
-});
-const buttonDate = document.querySelector(".button-date");
-const dateButton = document.querySelector(".date");
-buttonDate.addEventListener("click", () => {
-  dateButton.classList.toggle("hid");
-});
-const buttonWish = document.querySelector(".button-wish");
-const greetingContainer = document.querySelector(".greeting-container");
-buttonWish.addEventListener("click", () => {
-  greetingContainer.classList.toggle("hid");
-});
-const buttonQuote = document.querySelector(".button-quote");
-const quoteWrap = document.querySelector(".quote-wrap");
-buttonQuote.addEventListener("click", () => {
-  quoteWrap.classList.toggle("hid");
-});
-const buttonSettings = document.querySelector(".button-settings");
-const todoSettings = document.querySelector(".todo-settings");
-
-buttonSettings.addEventListener("click", () => {
-  todoSettings.classList.toggle("vigorous");
+const buttonTime = document.querySelector('.button-time');
+buttonTime.addEventListener('click', () => {
+  time.classList.toggle('hid');
 });
 
-const name = document.querySelector(".name");
+const buttonPlay = document.querySelector('.button-play');
+const player = document.querySelector('.player');
+buttonPlay.addEventListener('click', () => {
+  player.classList.toggle('hid');
+});
+const buttonDate = document.querySelector('.button-date');
+const dateButton = document.querySelector('.date');
+buttonDate.addEventListener('click', () => {
+  dateButton.classList.toggle('hid');
+});
+const buttonWish = document.querySelector('.button-wish');
+const greetingContainer = document.querySelector('.greeting-container');
+buttonWish.addEventListener('click', () => {
+  greetingContainer.classList.toggle('hid');
+});
+const buttonQuote = document.querySelector('.button-quote');
+const quoteWrap = document.querySelector('.quote-wrap');
+buttonQuote.addEventListener('click', () => {
+  quoteWrap.classList.toggle('hid');
+});
+const buttonSettings = document.querySelector('.button-settings');
+const todoSettings = document.querySelector('.todo-settings');
+
+buttonSettings.addEventListener('click', () => {
+  todoSettings.classList.toggle('vigorous');
+});
+
+const name = document.querySelector('.name');
 
 function setLocalStorage() {
-  localStorage.setItem("name", name.value);
-  localStorage.setItem("city", city.value);
+  localStorage.setItem('name', name.value);
+  localStorage.setItem('city', city.value);
   // localStorage.setItem('weather', hid);
 }
-window.addEventListener("beforeunload", setLocalStorage);
+window.addEventListener('beforeunload', setLocalStorage);
 
 function getLocalStorage() {
-  if (localStorage.getItem("name")) {
-    name.value = localStorage.getItem("name");
+  if (localStorage.getItem('name')) {
+    name.value = localStorage.getItem('name');
   }
-  if (localStorage.getItem("city")) {
-    city.value = localStorage.getItem("city");
+  if (localStorage.getItem('city')) {
+    city.value = localStorage.getItem('city');
   }
   // if(localStorage.getItem('weather')) {
   //   hid = localStorage.getItem('weather');
   // }
 }
-window.addEventListener("load", getLocalStorage);
+window.addEventListener('load', getLocalStorage);
 
 // window.localStorage.clear ()
+
