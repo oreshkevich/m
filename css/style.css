@@ -756,10 +756,13 @@ input[type=text] {
     width: 116px;
     padding: 7px;
 }
-.button-settings {
-  top: 154px;
-}
 
+.button-settings {
+    top: 269px;
+}
+.tun {
+  display: none;
+}
 }
 
 
